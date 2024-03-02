@@ -29,7 +29,7 @@
         BorderBrush="LightGray"
         BorderThickness="5"
         CornerRadius="15">
-        <Grid Background="#F0F0F0">
+        <Grid Background="SkyBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*" />
                 <ColumnDefinition Width="16*" />
@@ -257,6 +257,8 @@
                     Name="semesterTreeView"
                     Grid.Row="0"
                     Margin="0,15,15,15"
+                    Background="#E8F8E8"
+                    BorderBrush="DarkBlue"
                     ItemsSource="{Binding Semesters}"
                     RenderTransform="{StaticResource zoomTransform}">
                     <TreeView.ItemTemplate>
@@ -268,6 +270,7 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock
                                     Grid.Row="0"
+                                    Cursor="Hand"
                                     FontFamily="Comic Sans ms"
                                     FontSize="60"
                                     Foreground="DarkSlateGray"
@@ -288,7 +291,8 @@
                                         <TextBlock
                                             Grid.Column="0"
                                             FontFamily="Comic Sans MS"
-                                            FontSize="28.5">
+                                            FontSize="28.5"
+                                            Foreground="DarkSlateGray">
                                             <Run Text="{Binding Name}" />
                                             <Run Text=" - Points scored: " />
                                             <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
@@ -306,7 +310,8 @@
                                                 <TextBlock
                                                     Margin="10"
                                                     FontFamily="Comic Sans ms"
-                                                    FontSize="22">
+                                                    FontSize="22"
+                                                    Foreground="DarkSlateGray">
                                                     <Run Text="{Binding Name}" />
                                                     <Run Text=" - Points scored: " />
                                                     <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
@@ -347,19 +352,28 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock
+                    <Border
                         Grid.Column="0"
-                        Margin="20,10,20,20"
-                        FontFamily="Comic Sans ms"
-                        FontSize="60"
-                        FontStyle="Italic"
-                        FontWeight="Medium"
-                        Foreground="Black"
-                        Text="{Binding TotalAverage, StringFormat='Average grade: {0:F2}'}" />
+                        Margin="0,5,0,15"
+                        Background="#E8F8E8"
+                        BorderBrush="DarkBlue"
+                        BorderThickness="1">
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontFamily="Comic Sans ms"
+                            FontSize="57"
+                            FontStyle="Oblique"
+                            FontWeight="Medium"
+                            Foreground="DarkSlateGray"
+                            Text="{Binding TotalAverage, StringFormat='Average grade: {0:F2}'}"
+                            TextAlignment="Center" />
+                    </Border>
+
                     <Button
                         Name="ZoomInButton"
                         Grid.Column="1"
-                        Margin="50,5,50,15"
+                        Margin="50,5,10,15"
                         Background="LawnGreen"
                         BorderBrush="ForestGreen"
                         BorderThickness="3"
@@ -374,7 +388,7 @@
                     <Button
                         Name="ZoomOutButton"
                         Grid.Column="2"
-                        Margin="50,5,50,15"
+                        Margin="10,5,50,15"
                         Background="OrangeRed"
                         BorderBrush="DarkRed"
                         BorderThickness="3"

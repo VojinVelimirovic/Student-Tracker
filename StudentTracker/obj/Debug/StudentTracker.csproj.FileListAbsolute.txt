@@ -12,20 +12,12 @@ C:\Users\Korisnik\source\repos\StudentTracker\StudentTracker\obj\Debug\StudentTr
 C:\Users\Korisnik\source\repos\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.CoreCompileInputs.cache
 C:\Users\Korisnik\source\repos\StudentTracker\StudentTracker\obj\Debug\StudentTracker.exe
 C:\Users\Korisnik\source\repos\StudentTracker\StudentTracker\obj\Debug\StudentTracker.pdb
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\StudentTracker.exe.config
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\StudentTracker.exe
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\StudentTracker.pdb
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\MainWindow.g.cs
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\App.g.cs
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker_MarkupCompile.cache
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker_MarkupCompile.lref
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\MainWindow.baml
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.g.resources
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.Properties.Resources.resources
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.GenerateResource.cache
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.CoreCompileInputs.cache
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.exe
-C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.pdb
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\ExtraWindows\AddSemesterWindow.g.cs
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\ExtraWindows\AddSemesterWindow.baml
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\ExtraWindows\RemoveSemesterWindow.g.cs
@@ -70,4 +62,12 @@ C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\System.ValueTu
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.CopyComplete
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\Student Tracker.exe.config
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\Student Tracker.exe
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\bin\Debug\Student Tracker.pdb
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\Student Tracker_MarkupCompile.cache
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\Student Tracker_MarkupCompile.lref
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\Student Tracker.g.resources
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\Student Tracker.exe
+C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\Student Tracker.pdb
 C:\Users\Korisnik\Desktop\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache

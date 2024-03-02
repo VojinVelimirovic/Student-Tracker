@@ -68,7 +68,7 @@ namespace StudentTracker.ExtraWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/StudentTracker;component/extrawindows/addsemesterwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Student Tracker;component/extrawindows/addsemesterwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ExtraWindows\AddSemesterWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
