@@ -82,6 +82,7 @@ namespace StudentTracker
             LoadAppState();
             ZoomInButton.IsEnabled = false;
             PopulateTreeView();
+            UpdateAverage();
         }
 
         private void SaveAppState()
