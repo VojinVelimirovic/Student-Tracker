@@ -341,8 +341,13 @@
                     </TreeView.ItemTemplate>
                     <TreeView.ItemContainerStyle>
                         <Style TargetType="TreeViewItem">
-                            <Setter Property="IsExpanded" Value="True" />
                             <Setter Property="Focusable" Value="False" />
+                            <Setter Property="IsExpanded" Value="False" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Items.Count, RelativeSource={RelativeSource Self}}" Value="1">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
                         </Style>
                     </TreeView.ItemContainerStyle>
                 </TreeView>
