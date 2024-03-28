@@ -49,7 +49,8 @@
                 BorderBrush="ForestGreen"
                 BorderThickness="4"
                 Click="AddResult_Click"
-                IsEnabled="{Binding HasSemesters}">
+                IsEnabled="{Binding HasSemesters}"
+                ToolTip="Add exam result">
                 <Button.Content>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -87,7 +88,8 @@
                     Background="LawnGreen"
                     BorderBrush="ForestGreen"
                     BorderThickness="4"
-                    Click="AddSemester_Click">
+                    Click="AddSemester_Click"
+                    ToolTip="Add semester">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -119,7 +121,8 @@
                     BorderBrush="DarkRed"
                     BorderThickness="4"
                     Click="RemoveSemester_Click"
-                    IsEnabled="{Binding HasSemesters}">
+                    IsEnabled="{Binding HasSemesters}"
+                    ToolTip="Remove semester">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -157,7 +160,8 @@
                     BorderBrush="ForestGreen"
                     BorderThickness="4"
                     Click="AddSubject_Click"
-                    IsEnabled="{Binding HasSemesters}">
+                    IsEnabled="{Binding HasSemesters}"
+                    ToolTip="Add subject">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -189,7 +193,8 @@
                     BorderBrush="DarkRed"
                     BorderThickness="4"
                     Click="RemoveSubject_Click"
-                    IsEnabled="{Binding HasSemesters}">
+                    IsEnabled="{Binding HasSemesters}"
+                    ToolTip="Remove subject">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -223,7 +228,8 @@
                 BorderBrush="DarkRed"
                 BorderThickness="4"
                 Click="ClearButton_Click"
-                IsEnabled="{Binding HasSemesters}">
+                IsEnabled="{Binding HasSemesters}"
+                ToolTip="Clear all data">
                 <Button.Content>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -256,32 +262,40 @@
                 <TreeView
                     Name="semesterTreeView"
                     Grid.Row="0"
-                    Margin="0,15,15,15"
-                    Background="#E8F8E8"
-                    BorderBrush="DarkBlue"
+                    Margin="15"
+                    Background="White"
+                    BorderBrush="DarkSlateGray"
+                    BorderThickness="5"
                     ItemsSource="{Binding Semesters}"
                     RenderTransform="{StaticResource zoomTransform}">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
-                            <Grid Margin="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <TextBlock
-                                    Grid.Row="0"
-                                    Cursor="Hand"
-                                    FontFamily="Comic Sans ms"
-                                    FontSize="60"
-                                    Foreground="DarkSlateGray"
-                                    Text="{Binding Name}" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    FontFamily="Verdana"
-                                    FontSize="20"
-                                    Foreground="DarkGray"
-                                    Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
-                            </Grid>
+                            <Border
+                                Width="Auto"
+                                Margin="0"
+                                BorderBrush="Gray"
+                                BorderThickness="0,0.5,0,0.5">
+                                <Grid Width="1000" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Cursor="Hand"
+                                        FontFamily="Comic Sans ms"
+                                        FontSize="60"
+                                        Foreground="DarkSlateGray"
+                                        Text="{Binding Name}"
+                                        ToolTip="Expand/Collapse semester" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        FontFamily="Verdana"
+                                        FontSize="20"
+                                        Foreground="Gray"
+                                        Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
+                                </Grid>
+                            </Border>
                             <HierarchicalDataTemplate.ItemTemplate>
                                 <HierarchicalDataTemplate ItemsSource="{Binding TestResults}">
                                     <Grid>
@@ -290,9 +304,11 @@
                                         </Grid.ColumnDefinitions>
                                         <TextBlock
                                             Grid.Column="0"
+                                            Cursor="Hand"
                                             FontFamily="Comic Sans MS"
                                             FontSize="28.5"
-                                            Foreground="DarkSlateGray">
+                                            Foreground="DarkSlateGray"
+                                            ToolTip="Expand/Collapse subject">
                                             <Run Text="{Binding Name}" />
                                             <Run Text=" - Points scored: " />
                                             <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
@@ -359,10 +375,10 @@
                     </Grid.ColumnDefinitions>
                     <Border
                         Grid.Column="0"
-                        Margin="0,5,0,15"
-                        Background="#E8F8E8"
-                        BorderBrush="DarkBlue"
-                        BorderThickness="1">
+                        Margin="15,5,0,15"
+                        Background="White"
+                        BorderBrush="DarkSlateGray"
+                        BorderThickness="5">
                         <TextBlock
                             Margin="0,10,0,0"
                             HorizontalAlignment="Center"
@@ -382,7 +398,8 @@
                         Background="LawnGreen"
                         BorderBrush="ForestGreen"
                         BorderThickness="3"
-                        Click="ZoomIn_Click">
+                        Click="ZoomIn_Click"
+                        ToolTip="Zoom In">
                         <Button.Content>
                             <Image
                                 Margin="15"
@@ -397,7 +414,8 @@
                         Background="OrangeRed"
                         BorderBrush="DarkRed"
                         BorderThickness="3"
-                        Click="ZoomOut_Click">
+                        Click="ZoomOut_Click"
+                        ToolTip="ZoomOut">
                         <Button.Content>
                             <Image
                                 Margin="15"

@@ -107,7 +107,6 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\System.Text
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\System.Text.Json.xml
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\System.ValueTuple.xml
-C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\ExtraWindows\AddResultWindow.g.cs
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\ExtraWindows\AddSemesterWindow.g.cs
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\ExtraWindows\AddSubjectWindow.g.cs
