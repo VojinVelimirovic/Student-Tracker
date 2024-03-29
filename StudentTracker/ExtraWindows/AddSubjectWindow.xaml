@@ -9,6 +9,7 @@
     Width="600"
     Height="250"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -62,7 +63,10 @@
             Margin="20"
             Click="AddSubject_Click"
             Content="Add subject"
+            Cursor="Hand"
             FontSize="13"
-            IsEnabled="False" />
+            IsEnabled="False"
+            Style="{StaticResource ShadowEffectButton}"
+            ToolTip="Add subject" />
     </Grid>
 </Window>

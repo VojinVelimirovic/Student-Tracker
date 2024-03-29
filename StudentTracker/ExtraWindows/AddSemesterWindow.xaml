@@ -9,6 +9,7 @@
     Width="400"
     Height="150"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
@@ -38,8 +39,11 @@
             Margin="15"
             Click="AddClick"
             Content="Add semester"
+            Cursor="Hand"
             FontFamily="Comic sans ms"
             FontSize="16"
-            IsEnabled="False" />
+            IsEnabled="False"
+            Style="{StaticResource ShadowEffectButton}"
+            ToolTip="Add semester" />
     </Grid>
 </Window>

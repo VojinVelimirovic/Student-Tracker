@@ -10,8 +10,9 @@
     Height="750"
     MinWidth="1400"
     MinHeight="750"
-    Background="White"
+    Background="SkyBlue"
     Icon="/Images/book.png"
+    WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     mc:Ignorable="d">
     <Window.Resources>
@@ -25,11 +26,8 @@
         </Style>
         <ScaleTransform x:Key="zoomTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
-    <Border
-        BorderBrush="LightGray"
-        BorderThickness="5"
-        CornerRadius="15">
-        <Grid Background="SkyBlue">
+    <Border BorderBrush="DarkSlateGray" BorderThickness="5">
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*" />
                 <ColumnDefinition Width="16*" />
@@ -45,11 +43,9 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="15"
-                Background="LawnGreen"
-                BorderBrush="ForestGreen"
-                BorderThickness="4"
                 Click="AddResult_Click"
                 IsEnabled="{Binding HasSemesters}"
+                Style="{StaticResource GreenButtonStyle}"
                 ToolTip="Add exam result">
                 <Button.Content>
                     <Grid>
@@ -85,10 +81,8 @@
                     Name="AddSemester"
                     Grid.Column="0"
                     Margin="7"
-                    Background="LawnGreen"
-                    BorderBrush="ForestGreen"
-                    BorderThickness="4"
                     Click="AddSemester_Click"
+                    Style="{StaticResource GreenButtonStyle}"
                     ToolTip="Add semester">
                     <Button.Content>
                         <Grid>
@@ -117,11 +111,9 @@
                     Name="RemoveSemester"
                     Grid.Column="1"
                     Margin="7"
-                    Background="OrangeRed"
-                    BorderBrush="DarkRed"
-                    BorderThickness="4"
                     Click="RemoveSemester_Click"
                     IsEnabled="{Binding HasSemesters}"
+                    Style="{StaticResource RedButtonStyle}"
                     ToolTip="Remove semester">
                     <Button.Content>
                         <Grid>
@@ -156,11 +148,9 @@
                     Name="AddSubject"
                     Grid.Column="0"
                     Margin="7"
-                    Background="LawnGreen"
-                    BorderBrush="ForestGreen"
-                    BorderThickness="4"
                     Click="AddSubject_Click"
                     IsEnabled="{Binding HasSemesters}"
+                    Style="{StaticResource GreenButtonStyle}"
                     ToolTip="Add subject">
                     <Button.Content>
                         <Grid>
@@ -189,11 +179,9 @@
                     Name="RemoveSubject"
                     Grid.Column="1"
                     Margin="7"
-                    Background="OrangeRed"
-                    BorderBrush="DarkRed"
-                    BorderThickness="4"
                     Click="RemoveSubject_Click"
                     IsEnabled="{Binding HasSemesters}"
+                    Style="{StaticResource RedButtonStyle}"
                     ToolTip="Remove subject">
                     <Button.Content>
                         <Grid>
@@ -224,11 +212,9 @@
                 Grid.Row="4"
                 Grid.Column="0"
                 Margin="15"
-                Background="OrangeRed"
-                BorderBrush="DarkRed"
-                BorderThickness="4"
                 Click="ClearButton_Click"
                 IsEnabled="{Binding HasSemesters}"
+                Style="{StaticResource RedButtonStyle}"
                 ToolTip="Clear all data">
                 <Button.Content>
                     <Grid>
@@ -275,7 +261,7 @@
                                 Margin="0"
                                 BorderBrush="Gray"
                                 BorderThickness="0,0.5,0,0.5">
-                                <Grid Width="1000" Margin="10">
+                                <Grid Width="980" Margin="10">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -395,10 +381,9 @@
                         Name="ZoomInButton"
                         Grid.Column="1"
                         Margin="50,5,10,15"
-                        Background="LawnGreen"
-                        BorderBrush="ForestGreen"
                         BorderThickness="3"
                         Click="ZoomIn_Click"
+                        Style="{StaticResource GreenButtonStyle}"
                         ToolTip="Zoom In">
                         <Button.Content>
                             <Image
@@ -411,10 +396,9 @@
                         Name="ZoomOutButton"
                         Grid.Column="2"
                         Margin="10,5,50,15"
-                        Background="OrangeRed"
-                        BorderBrush="DarkRed"
                         BorderThickness="3"
                         Click="ZoomOut_Click"
+                        Style="{StaticResource RedButtonStyle}"
                         ToolTip="ZoomOut">
                         <Button.Content>
                             <Image

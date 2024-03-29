@@ -9,6 +9,7 @@
     Width="600"
     Height="350"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
@@ -39,7 +40,10 @@
             HorizontalAlignment="Right"
             Click="Button_Click"
             Content="Remove"
+            Cursor="Hand"
             FontSize="20"
-            IsEnabled="False" />
+            IsEnabled="False"
+            Style="{StaticResource ShadowEffectButton}"
+            ToolTip="Remove semester" />
     </Grid>
 </Window>

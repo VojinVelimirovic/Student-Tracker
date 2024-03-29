@@ -129,3 +129,5 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTrac
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.CopyComplete
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tracker.exe
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tracker.pdb
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\App.baml

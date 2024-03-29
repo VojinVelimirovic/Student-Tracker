@@ -9,6 +9,7 @@
     Width="600"
     Height="550"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -144,7 +145,10 @@
             Height="30"
             Click="AddResultButton_Click"
             Content="Add exam result"
+            Cursor="Hand"
             FontSize="17"
-            IsEnabled="False" />
+            IsEnabled="False"
+            Style="{StaticResource ShadowEffectButton}"
+            ToolTip="Add exam result" />
     </Grid>
 </Window>
