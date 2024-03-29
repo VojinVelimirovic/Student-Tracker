@@ -89,7 +89,7 @@ namespace StudentTracker
             {
                 if (hasSubjects != value)
                 {
-                    hasSemesters = value;
+                    hasSubjects = value;
                     OnPropertyChanged(nameof(HasSubjects));
                 }
             }
@@ -193,6 +193,7 @@ namespace StudentTracker
                     UpdateAverage();
                     ShowToastNotification(new ToastNotification("Success", "Successfully added item(s)", NotificationType.Success));
                 }
+                PopulateTreeView();
             }
             catch (Exception) { }
         }
@@ -212,7 +213,7 @@ namespace StudentTracker
                 UpdateAverage();
                 ShowToastNotification(new ToastNotification("Success", "Successfully removed item(s)", NotificationType.Success));
             }
-
+            PopulateTreeView();
         }
 
         private void AddResult_Click(object sender, RoutedEventArgs e)
