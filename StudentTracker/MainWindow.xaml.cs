@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using StudentTracker.ExtraWindows;
 using Newtonsoft.Json;
+using System.Threading;
 using System.IO;
 
 
@@ -74,7 +75,7 @@ namespace StudentTracker
         }
         private double zoomFactor = 1.1;
         private int zoomOut = 0;
-        private int maxZoomOut = 3;
+        private int maxZoomOut = 4;
         public MainWindow()
         {
             InitializeComponent();
@@ -263,9 +264,18 @@ namespace StudentTracker
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            Semesters.Clear();
-            UpdateAverage();
-            PopulateTreeView();
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to remove all the data?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                Semesters.Clear();
+                UpdateAverage();
+                PopulateTreeView();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void UpdateAverage() 
@@ -292,20 +302,111 @@ namespace StudentTracker
 
         private void ZoomIn_Click(object sender, RoutedEventArgs e)
         {
-            ScaleTransform transform = (ScaleTransform)Resources["zoomTransform"];
-            transform.ScaleX *= zoomFactor;
-            transform.ScaleY *= zoomFactor;
+            //The zoom in/out functions only work on all the subitems in a TreeView if they have been expanded to at some point in the program, so i am
+            //expanding them all and then returning them to their original states
+            Dictionary<TreeViewItem, bool> originalExpandedState = new Dictionary<TreeViewItem, bool>();
+            SaveOriginalExpandedState(semesterTreeView, originalExpandedState);
+            ExpandCollapseTreeViewItems(semesterTreeView, true);
+            AdjustFontSize(zoomFactor);
             zoomOut--;
             RegulateZoom();
+            ExpandCollapseTreeViewItems(semesterTreeView, false);
+            RestoreOriginalExpandedState(semesterTreeView, originalExpandedState);
         }
 
         private void ZoomOut_Click(object sender, RoutedEventArgs e)
         {
-            ScaleTransform transform = (ScaleTransform)Resources["zoomTransform"];
-            transform.ScaleX /= zoomFactor;
-            transform.ScaleY /= zoomFactor;
+            Dictionary<TreeViewItem, bool> originalExpandedState = new Dictionary<TreeViewItem, bool>();
+            SaveOriginalExpandedState(semesterTreeView, originalExpandedState);
+            ExpandCollapseTreeViewItems(semesterTreeView, true);
+            AdjustFontSize(1 / zoomFactor);
             zoomOut++;
             RegulateZoom();
+            ExpandCollapseTreeViewItems(semesterTreeView, false);
+            RestoreOriginalExpandedState(semesterTreeView, originalExpandedState);
+        }
+
+        private void AdjustFontSize(double factor)
+        {
+            semesterTreeView.UpdateLayout();
+            foreach (var textBlock in FindVisualChildren<TextBlock>(semesterTreeView))
+            {
+                textBlock.FontSize *= factor;
+            }
+
+            foreach (var button in FindVisualChildren<Button>(semesterTreeView))
+            {
+                button.Height *= factor;
+                button.Width *= factor;
+            }
+        }
+
+        private void ExpandCollapseTreeViewItems(TreeView treeView, bool expand)
+        {
+            foreach (var item in treeView.Items)
+            {
+                var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
+                if (treeViewItem != null)
+                {
+                    if (expand)
+                    {
+                        treeViewItem.IsExpanded = true;
+                    }
+                    else
+                    {
+                        treeViewItem.IsExpanded = false;
+                    }
+                }
+            }
+        }
+
+        private void SaveOriginalExpandedState(TreeView treeView, Dictionary<TreeViewItem, bool> originalExpandedState)
+        {
+            originalExpandedState.Clear();
+            foreach (var item in treeView.Items)
+            {
+                var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
+                if (treeViewItem != null)
+                {
+                    originalExpandedState[treeViewItem] = treeViewItem.IsExpanded;
+                }
+            }
+        }
+
+        private void RestoreOriginalExpandedState(TreeView treeView, Dictionary<TreeViewItem, bool> originalExpandedState)
+        {
+            foreach (var item in treeView.Items)
+            {
+                var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
+                if (treeViewItem != null)
+                {
+                    if (originalExpandedState.ContainsKey(treeViewItem))
+                    {
+                        treeViewItem.IsExpanded = originalExpandedState[treeViewItem];
+                    }
+                }
+            }
+        }
+
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                int count = VisualTreeHelper.GetChildrenCount(depObj);
+                for (int i = 0; i < count; i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
         }
 
         private void RegulateZoom() {
