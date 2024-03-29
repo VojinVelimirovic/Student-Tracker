@@ -17,6 +17,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using StudentTracker.ExtraWindows;
 using Newtonsoft.Json;
+using StudentTracker.Helpers;
+using Notification.Wpf;
 using System.Threading;
 using System.IO;
 
@@ -29,6 +31,17 @@ namespace StudentTracker
 
         private string AppStateFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appState.json");
 
+        private NotificationManager notificationManager;
+        public MainWindow()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+            LoadAppState();
+            ZoomInButton.IsEnabled = false;
+            PopulateTreeView();
+            UpdateAverage();
+            notificationManager = new NotificationManager();
+        }
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -37,6 +50,15 @@ namespace StudentTracker
         private void PopulateTreeView()
         {
             HasSemesters = Semesters.Any();
+            HasSubjects = false;
+            foreach(Semester semester in Semesters) 
+            {
+                if (semester.Subjects.Any())
+                {
+                    HasSubjects = true;
+                    break;
+                }
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -59,6 +81,20 @@ namespace StudentTracker
             }
         }
 
+        private bool hasSubjects;
+        public bool HasSubjects
+        {
+            get { return hasSubjects; }
+            set
+            {
+                if (hasSubjects != value)
+                {
+                    hasSemesters = value;
+                    OnPropertyChanged(nameof(HasSubjects));
+                }
+            }
+        }
+
         public ObservableCollection<Semester> Semesters { get; set; }
         private double totalAverage;
         public double TotalAverage
@@ -76,15 +112,6 @@ namespace StudentTracker
         private double zoomFactor = 1.1;
         private int zoomOut = 0;
         private int maxZoomOut = 4;
-        public MainWindow()
-        {
-            InitializeComponent();
-            this.DataContext = this;
-            LoadAppState();
-            ZoomInButton.IsEnabled = false;
-            PopulateTreeView();
-            UpdateAverage();
-        }
 
         private void SaveAppState()
         {
@@ -130,6 +157,7 @@ namespace StudentTracker
             if(form.ShowDialog() == true) {
                 semester.Name = form.NameBox.Text;
                 Semesters.Add(semester);
+                ShowToastNotification(new ToastNotification("Success", "Successfully added item(s)", NotificationType.Success));
             }
             PopulateTreeView();
         }
@@ -143,6 +171,7 @@ namespace StudentTracker
             {
                 semester = selectedSemester;
                 Semesters.Remove(semester);
+                ShowToastNotification(new ToastNotification("Success", "Successfully removed item(s)", NotificationType.Success));
             }
             PopulateTreeView();
         }
@@ -162,6 +191,7 @@ namespace StudentTracker
                     semester.Subjects.Add(subject);
                     semester.UpdateSemester();
                     UpdateAverage();
+                    ShowToastNotification(new ToastNotification("Success", "Successfully added item(s)", NotificationType.Success));
                 }
             }
             catch (Exception) { }
@@ -180,6 +210,7 @@ namespace StudentTracker
                 semester.Subjects.Remove(subject);
                 semester.UpdateSemester();
                 UpdateAverage();
+                ShowToastNotification(new ToastNotification("Success", "Successfully removed item(s)", NotificationType.Success));
             }
 
         }
@@ -207,6 +238,7 @@ namespace StudentTracker
                     semester.Subjects.Add(subject);
                     semester.UpdateSemester();
                     UpdateAverage();
+                    ShowToastNotification(new ToastNotification("Success", "Successfully added item(s)", NotificationType.Success));
                 }
             }
             catch (Exception) { }
@@ -244,6 +276,7 @@ namespace StudentTracker
                             }
                         }
 
+                        ShowToastNotification(new ToastNotification("Success", "Successfully removed item(s)", NotificationType.Success));
                         semesterTreeView.Items.Refresh();
 
                         foreach (Semester semester in semesterTreeView.Items)
@@ -271,6 +304,7 @@ namespace StudentTracker
                 Semesters.Clear();
                 UpdateAverage();
                 PopulateTreeView();
+                ShowToastNotification(new ToastNotification("Success", "Successfully removed item(s)", NotificationType.Success));
             }
             else
             {
@@ -424,6 +458,101 @@ namespace StudentTracker
             else
             {
                 ZoomInButton.IsEnabled = false;
+            }
+        }
+
+        private void SemesterItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            if (textBlock != null)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(textBlock);
+                while (parent != null && !(parent is TreeViewItem))
+                {
+                    parent = VisualTreeHelper.GetParent(parent);
+                }
+                TreeViewItem treeViewItem = parent as TreeViewItem;
+                if (treeViewItem != null)
+                {
+                    if (treeViewItem.IsExpanded)
+                    {
+                        treeViewItem.IsExpanded = false;
+                    }
+                    else
+                    {
+                        treeViewItem.IsExpanded = true;
+                    }
+                }
+            }
+        }
+
+        private void semesterTreeView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        public void ShowToastNotification(ToastNotification toastNotification)
+        {
+            notificationManager.Show(toastNotification.Title, toastNotification.Message, toastNotification.Type, "MainWindowNotificationArea");
+        }
+
+        private void SemesterItem_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is TextBlock textBlock)
+            {
+                textBlock.Foreground = Brushes.LightSkyBlue;
+            }
+        }
+
+        private void SemesterItem_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is TextBlock textBlock)
+            {
+                textBlock.Foreground = Brushes.DarkSlateGray;
+            }
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.OemPlus)
+            {
+                if(ZoomInButton.IsEnabled)
+                    ZoomIn_Click(this, new RoutedEventArgs());
+            }
+            else if(Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.OemMinus)
+            {
+                if(ZoomOutButton.IsEnabled)
+                    ZoomOut_Click(this, new RoutedEventArgs());
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.Delete)
+            {
+                if(ClearButton.IsEnabled)
+                    ClearButton_Click(this, new RoutedEventArgs());
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.N)
+            {
+                if (AddSemester.IsEnabled)
+                    AddSemester_Click(this, new RoutedEventArgs());
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.D)
+            {
+                if (RemoveSemester.IsEnabled)
+                    RemoveSemester_Click(this, new RoutedEventArgs());
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.A)
+            {
+                if (AddSubject.IsEnabled)
+                    AddSubject_Click(this, new RoutedEventArgs());
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.R)
+            {
+                if (RemoveSubject.IsEnabled)
+                    RemoveSubject_Click(this, new RoutedEventArgs());
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E)
+            {
+                if (AddResult.IsEnabled)
+                    AddResult_Click(this, new RoutedEventArgs());
             }
         }
     }

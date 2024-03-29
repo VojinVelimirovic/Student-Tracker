@@ -130,4 +130,9 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTrac
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tracker.exe
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tracker.pdb
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\App.baml
-C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Notification.Wpf.dll
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Notification.Wpf.pdb
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Notification.Wpf.xml

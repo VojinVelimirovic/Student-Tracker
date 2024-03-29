@@ -33,7 +33,7 @@ namespace StudentTracker.ExtraWindows
             foreach (Semester s in mainWindow.Semesters) {
                 if (NameBox.Text == s.Name)
                 {
-                    MessageBox.Show($"'{NameBox.Text}' already exists");
+                    MessageBox.Show($"'{NameBox.Text}' already exists", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }

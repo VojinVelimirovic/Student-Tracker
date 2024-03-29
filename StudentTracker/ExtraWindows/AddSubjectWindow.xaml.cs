@@ -28,7 +28,7 @@ namespace StudentTracker.ExtraWindows
             SemComboBox.ItemsSource = main.Semesters;
             SemComboBox.DisplayMemberPath = "Name";
             if (!main.Semesters.Any()) {
-                MessageBox.Show("Create a semester first");
+                MessageBox.Show("Create a semester first", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Close();
             }
         }
@@ -45,7 +45,7 @@ namespace StudentTracker.ExtraWindows
             if (SemComboBox.SelectedItem is Semester selectedSemester) {
                 foreach (Subject s in selectedSemester.Subjects) {
                     if (NameBoxSubject.Text == s.Name) {
-                        MessageBox.Show($"'{NameBoxSubject.Text}' already exists within the chosen semester");
+                        MessageBox.Show($"'{NameBoxSubject.Text}' already exists within the chosen semester", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                 }

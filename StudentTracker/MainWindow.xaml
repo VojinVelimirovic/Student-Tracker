@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:StudentTracker"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
     Title="Student Tracker"
     Width="1400"
     Height="750"
@@ -12,6 +13,7 @@
     MinHeight="750"
     Background="SkyBlue"
     Icon="/Images/book.png"
+    PreviewKeyDown="Window_PreviewKeyDown"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     mc:Ignorable="d">
@@ -38,15 +40,21 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
+            <notifications:NotificationArea
+                x:Name="MainWindowNotificationArea"
+                Grid.Column="1"
+                Panel.ZIndex="1000"
+                MaxItems="3"
+                Position="TopRight" />
             <Button
                 Name="AddResult"
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="15"
                 Click="AddResult_Click"
-                IsEnabled="{Binding HasSemesters}"
+                IsEnabled="{Binding HasSubjects}"
                 Style="{StaticResource GreenButtonStyle}"
-                ToolTip="Add exam result">
+                ToolTip="Add exam result (Ctrl+E)">
                 <Button.Content>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -83,7 +91,7 @@
                     Margin="7"
                     Click="AddSemester_Click"
                     Style="{StaticResource GreenButtonStyle}"
-                    ToolTip="Add semester">
+                    ToolTip="Add semester (Ctrl+N)">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -114,7 +122,7 @@
                     Click="RemoveSemester_Click"
                     IsEnabled="{Binding HasSemesters}"
                     Style="{StaticResource RedButtonStyle}"
-                    ToolTip="Remove semester">
+                    ToolTip="Remove semester (Ctrl+D)">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -151,7 +159,7 @@
                     Click="AddSubject_Click"
                     IsEnabled="{Binding HasSemesters}"
                     Style="{StaticResource GreenButtonStyle}"
-                    ToolTip="Add subject">
+                    ToolTip="Add subject (Ctrl+A)">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -180,9 +188,9 @@
                     Grid.Column="1"
                     Margin="7"
                     Click="RemoveSubject_Click"
-                    IsEnabled="{Binding HasSemesters}"
+                    IsEnabled="{Binding HasSubjects}"
                     Style="{StaticResource RedButtonStyle}"
-                    ToolTip="Remove subject">
+                    ToolTip="Remove subject (Ctrl+R)">
                     <Button.Content>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -215,7 +223,7 @@
                 Click="ClearButton_Click"
                 IsEnabled="{Binding HasSemesters}"
                 Style="{StaticResource RedButtonStyle}"
-                ToolTip="Clear all data">
+                ToolTip="Clear all data (Ctrl+Delete)">
                 <Button.Content>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -253,6 +261,7 @@
                     BorderBrush="DarkSlateGray"
                     BorderThickness="5"
                     ItemsSource="{Binding Semesters}"
+                    PreviewMouseDoubleClick="semesterTreeView_PreviewMouseDoubleClick"
                     RenderTransform="{StaticResource zoomTransform}">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
@@ -267,11 +276,17 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
                                     <TextBlock
+                                        Name="SemesterItem"
                                         Grid.Row="0"
+                                        Width="Auto"
+                                        HorizontalAlignment="Left"
                                         Cursor="Hand"
                                         FontFamily="Comic Sans ms"
                                         FontSize="60"
                                         Foreground="DarkSlateGray"
+                                        MouseDown="SemesterItem_MouseLeftButtonDown"
+                                        MouseEnter="SemesterItem_MouseEnter"
+                                        MouseLeave="SemesterItem_MouseLeave"
                                         Text="{Binding Name}"
                                         ToolTip="Expand/Collapse semester" />
                                     <TextBlock
@@ -279,6 +294,7 @@
                                         FontFamily="Verdana"
                                         FontSize="20"
                                         Foreground="Gray"
+                                        IsHitTestVisible="False"
                                         Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
                                 </Grid>
                             </Border>
@@ -290,10 +306,14 @@
                                         </Grid.ColumnDefinitions>
                                         <TextBlock
                                             Grid.Column="0"
+                                            Margin="7,0,0,0"
                                             Cursor="Hand"
                                             FontFamily="Comic Sans MS"
                                             FontSize="28.5"
                                             Foreground="DarkSlateGray"
+                                            MouseDown="SemesterItem_MouseLeftButtonDown"
+                                            MouseEnter="SemesterItem_MouseEnter"
+                                            MouseLeave="SemesterItem_MouseLeave"
                                             ToolTip="Expand/Collapse subject">
                                             <Run Text="{Binding Name}" />
                                             <Run Text=" - Points scored: " />
@@ -329,7 +349,8 @@
                                                     Margin="0.5"
                                                     Background="Transparent"
                                                     BorderThickness="0"
-                                                    Click="RemoveTestResult_Click">
+                                                    Click="RemoveTestResult_Click"
+                                                    ToolTip="Remove exam result">
                                                     <Button.Content>
                                                         <Image Source="Images/removeTestResult.png" />
                                                     </Button.Content>
@@ -342,7 +363,7 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                     <TreeView.ItemContainerStyle>
-                        <Style TargetType="TreeViewItem">
+                        <Style BasedOn="{StaticResource TreeViewItemStyle}" TargetType="TreeViewItem">
                             <Setter Property="Focusable" Value="False" />
                             <Setter Property="IsExpanded" Value="False" />
                             <Style.Triggers>
@@ -384,7 +405,7 @@
                         BorderThickness="3"
                         Click="ZoomIn_Click"
                         Style="{StaticResource GreenButtonStyle}"
-                        ToolTip="Zoom In">
+                        ToolTip="Zoom In (Ctrl+Plus)">
                         <Button.Content>
                             <Image
                                 Margin="15"
@@ -399,7 +420,7 @@
                         BorderThickness="3"
                         Click="ZoomOut_Click"
                         Style="{StaticResource RedButtonStyle}"
-                        ToolTip="ZoomOut">
+                        ToolTip="Zoom Out (Ctrl+Minus)">
                         <Button.Content>
                             <Image
                                 Margin="15"

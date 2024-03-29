@@ -44,5 +44,114 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="TreeViewItemStyle" TargetType="TreeViewItem">
+            <Setter Property="Padding" Value="1,0,0,0" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TreeViewItem">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="19" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <ToggleButton
+                                x:Name="Expander"
+                                ClickMode="Press"
+                                IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+                                        <Setter Property="UIElement.Focusable" Value="False" />
+                                        <Setter Property="FrameworkElement.Width" Value="19" />
+                                        <Setter Property="FrameworkElement.Height" Value="13" />
+                                        <Setter Property="Control.Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Grid
+                                                        Width="19"
+                                                        Height="13"
+                                                        Background="Transparent">
+                                                        <Path
+                                                            x:Name="ExpandPath"
+                                                            Margin="1,1,1,1"
+                                                            HorizontalAlignment="Right"
+                                                            VerticalAlignment="Center"
+                                                            Data="M 0 0 L 10 5 L 0 10 Z"
+                                                            Fill="DarkSlateGray" />
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                                                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="LightSkyBlue" />
+                                                            <Setter Property="Control.Cursor" Value="Hand" />
+                                                        </Trigger>
+                                                        <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                                            <Setter TargetName="ExpandPath" Property="Path.Data" Value="M 0 6 L 12 6 L 6 12 Z" />
+                                                        </Trigger>
+                                                        <Trigger Property="UIElement.IsEnabled" Value="False">
+                                                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="DarkSlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <Border
+                                Name="Bd"
+                                Grid.Column="1"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter
+                                    x:Name="PART_Header"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    ContentSource="Header" />
+                            </Border>
+                            <ItemsPresenter
+                                x:Name="ItemsHost"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="TreeViewItem.IsExpanded" Value="False">
+                                <Setter TargetName="ItemsHost" Property="UIElement.Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="ItemsControl.HasItems" Value="False">
+                                <Setter TargetName="Expander" Property="UIElement.Visibility" Value="Hidden" />
+                            </Trigger>
+                            <Trigger Property="TreeViewItem.IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Panel.Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="TreeViewItem.IsSelected" Value="True" />
+                                    <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="Bd" Property="Panel.Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+                            </MultiTrigger>
+                            <Trigger Property="UIElement.IsEnabled" Value="False">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

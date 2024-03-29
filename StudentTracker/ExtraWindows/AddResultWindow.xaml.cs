@@ -29,7 +29,7 @@ namespace StudentTracker.ExtraWindows
             SemComboBox.DisplayMemberPath = "Name";
             if (!main.Semesters.Any())
             {
-                MessageBox.Show("Create a semester and subject first");
+                MessageBox.Show("Create a semester and subject first", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Close();
             }
         }
@@ -119,7 +119,7 @@ namespace StudentTracker.ExtraWindows
                 {
                     if (NameBox.Text == t.Name)
                     {
-                        MessageBox.Show($"'{NameBox.Text}' already exists within the chosen subject");
+                        MessageBox.Show($"'{NameBox.Text}' already exists within the chosen subject", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                 }
