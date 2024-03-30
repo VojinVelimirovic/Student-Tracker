@@ -27,6 +27,7 @@ namespace StudentTracker.ExtraWindows
             mainWindow = main;
             SemComboBox.ItemsSource = main.Semesters;
             SemComboBox.DisplayMemberPath = "Name";
+            datePicker.SelectedDate = DateTime.Now.Date;
             if (!main.Semesters.Any())
             {
                 MessageBox.Show("Create a semester and subject first", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -111,6 +112,39 @@ namespace StudentTracker.ExtraWindows
             UpdateButtonState();
         }
 
+        private bool IsValidDate(DateTime? selectedDate)
+        {
+            if (selectedDate == null)
+            {
+                MessageBox.Show("Date must be selected", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (selectedDate < new DateTime(1970, 1, 1))
+            {
+                MessageBox.Show("Date can't be before 01/01/1970", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (selectedDate.Value.Month < 1 || selectedDate.Value.Month > 12)
+            {
+                MessageBox.Show("Invald month", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (selectedDate.Value.Day < 1 || selectedDate.Value.Day > 31)
+            {
+                MessageBox.Show("Invalid day", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (selectedDate.Value.Day > DateTime.DaysInMonth(selectedDate.Value.Year, selectedDate.Value.Month))
+            {
+                MessageBox.Show("Invalid day", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void AddResultButton_Click(object sender, RoutedEventArgs e)
         {
             if (SubComboBox.SelectedItem is Subject selectedSubject)
@@ -124,7 +158,16 @@ namespace StudentTracker.ExtraWindows
                     }
                 }
             }
-            DialogResult = true;
+            if (double.TryParse(TotalBox.Text, out double total) && double.TryParse(ScoredBox.Text, out double scored))
+            {
+                if (scored > total)
+                {
+                    MessageBox.Show("Points scored must be lower than Max points", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            if(IsValidDate(datePicker.SelectedDate))
+                DialogResult = true;
         }
     }
 }

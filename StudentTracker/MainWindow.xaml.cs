@@ -489,7 +489,7 @@ namespace StudentTracker
 
         private void semesterTreeView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            e.Handled = true;
+            SemesterItem_MouseLeftButtonDown(sender, e);
         }
 
         public void ShowToastNotification(ToastNotification toastNotification)
