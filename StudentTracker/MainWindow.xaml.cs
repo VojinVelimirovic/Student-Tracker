@@ -122,7 +122,7 @@ namespace StudentTracker
                 Console.WriteLine("Serialization successful.");
             }
             catch (Exception ex)
-            {
+            {   
                 Console.WriteLine($"Error saving application state: {ex.Message}");
             }
         }

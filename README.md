@@ -42,5 +42,5 @@ Added keyboard commands:
   - Ctrl + E - Add Exam Result
   - Ctrl + Delete - Clear All Data
   - Ctrl + Plus(+) - Zoom In
-  - Ctrl + Minus(-) - Zoom out 
+  - Ctrl + Minus(-) - Zoom Out 
 </pre>

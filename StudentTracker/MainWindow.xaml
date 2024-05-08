@@ -11,7 +11,7 @@
     Height="750"
     MinWidth="1400"
     MinHeight="750"
-    Background="SkyBlue"
+    Background="#B0E0E6"
     Icon="/Images/book.png"
     PreviewKeyDown="Window_PreviewKeyDown"
     WindowStartupLocation="CenterScreen"
@@ -256,7 +256,7 @@
                 <TreeView
                     Name="semesterTreeView"
                     Grid.Row="0"
-                    Margin="15"
+                    Margin="30,15,7,15"
                     Background="White"
                     BorderBrush="DarkSlateGray"
                     BorderThickness="5"
@@ -382,7 +382,7 @@
                     </Grid.ColumnDefinitions>
                     <Border
                         Grid.Column="0"
-                        Margin="15,5,0,15"
+                        Margin="30,5,0,15"
                         Background="White"
                         BorderBrush="DarkSlateGray"
                         BorderThickness="5">
