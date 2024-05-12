@@ -24,7 +24,7 @@
         <Style x:Key="GreenButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Background" Value="LawnGreen" />
-            <Setter Property="BorderBrush" Value="ForestGreen" />
+            <Setter Property="BorderBrush" Value="#0f630f" />
             <Setter Property="BorderThickness" Value="4" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -99,7 +99,7 @@
                                                             <Setter TargetName="ExpandPath" Property="Path.Data" Value="M 0 6 L 12 6 L 6 12 Z" />
                                                         </Trigger>
                                                         <Trigger Property="UIElement.IsEnabled" Value="False">
-                                                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="DarkSlateGray" />
+                                                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="#0f630f" />
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>

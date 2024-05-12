@@ -17,7 +17,7 @@
     WindowState="Maximized"
     mc:Ignorable="d">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/background.jpg" Stretch="UniformToFill" />
+        <ImageBrush ImageSource="/Images/background.png" />
     </Window.Background>
     <Window.Resources>
         <Style TargetType="Button">
@@ -30,7 +30,7 @@
         </Style>
         <ScaleTransform x:Key="zoomTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
-    <Border BorderBrush="DarkSlateGray" BorderThickness="5">
+    <Border BorderBrush="#0f630f" BorderThickness="5">
         <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*" />
@@ -260,7 +260,7 @@
                     Grid.Row="0"
                     Margin="30,15,7,15"
                     Background="White"
-                    BorderBrush="DarkSlateGray"
+                    BorderBrush="#0f630f"
                     BorderThickness="5"
                     ItemsSource="{Binding Semesters}"
                     PreviewMouseDoubleClick="semesterTreeView_PreviewMouseDoubleClick"
@@ -270,7 +270,7 @@
                             <Border
                                 Width="Auto"
                                 Margin="0"
-                                BorderBrush="Gray"
+                                BorderBrush="#0f630f"
                                 BorderThickness="0,0.5,0,0.5">
                                 <Grid Width="980" Margin="10">
                                     <Grid.RowDefinitions>
@@ -284,8 +284,9 @@
                                         HorizontalAlignment="Left"
                                         Cursor="Hand"
                                         FontFamily="Comic Sans ms"
-                                        FontSize="60"
-                                        Foreground="DarkSlateGray"
+                                        FontSize="54"
+                                        FontWeight="Medium"
+                                        Foreground="#0f630f"
                                         MouseDown="SemesterItem_MouseLeftButtonDown"
                                         MouseEnter="SemesterItem_MouseEnter"
                                         MouseLeave="SemesterItem_MouseLeave"
@@ -294,8 +295,9 @@
                                     <TextBlock
                                         Grid.Row="1"
                                         FontFamily="Verdana"
-                                        FontSize="20"
-                                        Foreground="Gray"
+                                        FontSize="18"
+                                        FontStyle="Italic"
+                                        Foreground="#0f630f"
                                         IsHitTestVisible="False"
                                         Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
                                 </Grid>
@@ -311,8 +313,9 @@
                                             Margin="7,0,0,0"
                                             Cursor="Hand"
                                             FontFamily="Comic Sans MS"
-                                            FontSize="28.5"
-                                            Foreground="DarkSlateGray"
+                                            FontSize="26"
+                                            FontWeight="Medium"
+                                            Foreground="#0f630f"
                                             MouseDown="SemesterItem_MouseLeftButtonDown"
                                             MouseEnter="SemesterItem_MouseEnter"
                                             MouseLeave="SemesterItem_MouseLeave"
@@ -334,8 +337,9 @@
                                                 <TextBlock
                                                     Margin="10"
                                                     FontFamily="Comic Sans ms"
-                                                    FontSize="22"
-                                                    Foreground="DarkSlateGray">
+                                                    FontSize="20"
+                                                    FontWeight="Medium"
+                                                    Foreground="#0f630f">
                                                     <Run Text="{Binding Name}" />
                                                     <Run Text=" - Points scored: " />
                                                     <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
@@ -395,7 +399,7 @@
                             FontSize="57"
                             FontStyle="Oblique"
                             FontWeight="Medium"
-                            Foreground="DarkSlateGray"
+                            Foreground="#0f630f"
                             Text="{Binding TotalAverage, StringFormat='Average grade: {0:F2}'}"
                             TextAlignment="Center" />
                     </Border>

@@ -37,7 +37,6 @@ namespace StudentTracker
             InitializeComponent();
             this.DataContext = this;
             LoadAppState();
-            ZoomInButton.IsEnabled = false;
             PopulateTreeView();
             UpdateAverage();
             notificationManager = new NotificationManager();
@@ -110,7 +109,7 @@ namespace StudentTracker
             }
         }
         private double zoomFactor = 1.1;
-        private int zoomOut = 0;
+        private int zoomOut = 1;
         private int maxZoomOut = 4;
 
         private void SaveAppState()
@@ -509,7 +508,7 @@ namespace StudentTracker
         {
             if (sender is TextBlock textBlock)
             {
-                textBlock.Foreground = Brushes.DarkSlateGray;
+                textBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0f630f"));
             }
         }
 
