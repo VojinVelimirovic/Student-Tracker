@@ -136,4 +136,3 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Microsoft.X
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Notification.Wpf.pdb
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\Notification.Wpf.xml
-C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache

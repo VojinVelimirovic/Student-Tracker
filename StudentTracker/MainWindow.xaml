@@ -11,12 +11,14 @@
     Height="750"
     MinWidth="1400"
     MinHeight="750"
-    Background="#B0E0E6"
     Icon="/Images/book.png"
     PreviewKeyDown="Window_PreviewKeyDown"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     mc:Ignorable="d">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background.jpg" Stretch="UniformToFill" />
+    </Window.Background>
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Cursor" Value="Hand" />
