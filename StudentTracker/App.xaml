@@ -24,7 +24,7 @@
         <Style x:Key="GreenButtonStyle" TargetType="Button">
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Background" Value="LawnGreen" />
-            <Setter Property="BorderBrush" Value="#0f630f" />
+            <Setter Property="BorderBrush" Value="DarkSlateGray" />
             <Setter Property="BorderThickness" Value="4" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
