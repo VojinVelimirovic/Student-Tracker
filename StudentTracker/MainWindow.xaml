@@ -268,7 +268,7 @@
                 Name="semesterTreeView"
                 Grid.Row="0"
                 Margin="30,25,17,15"
-                Background="#fefec9"
+                Background="#fefeda"
                 BorderBrush="DarkSlateGray"
                 BorderThickness="5"
                 ItemsSource="{Binding Semesters}"
@@ -398,7 +398,7 @@
                 <Border
                     Grid.Column="0"
                     Margin="30,5,0,25"
-                    Background="#fefec9"
+                    Background="#fefeda"
                     BorderBrush="DarkSlateGray"
                     BorderThickness="5">
                     <TextBlock
