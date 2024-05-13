@@ -297,7 +297,7 @@
                                         FontFamily="Verdana"
                                         FontSize="18"
                                         FontStyle="Italic"
-                                        Foreground="#0f630f"
+                                        Foreground="DarkSlateGray"
                                         IsHitTestVisible="False"
                                         Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
                                 </Grid>
@@ -339,7 +339,7 @@
                                                     FontFamily="Comic Sans ms"
                                                     FontSize="20"
                                                     FontWeight="Medium"
-                                                    Foreground="#0f630f">
+                                                    Foreground="DarkSlateGray">
                                                     <Run Text="{Binding Name}" />
                                                     <Run Text=" - Points scored: " />
                                                     <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
