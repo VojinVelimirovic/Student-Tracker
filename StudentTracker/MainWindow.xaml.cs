@@ -508,7 +508,7 @@ namespace StudentTracker
         {
             if (sender is TextBlock textBlock)
             {
-                textBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0f630f"));
+                textBlock.Foreground = Brushes.DarkSlateGray ;
             }
         }
 

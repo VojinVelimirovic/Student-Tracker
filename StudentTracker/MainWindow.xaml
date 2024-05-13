@@ -286,7 +286,7 @@
                                         FontFamily="Comic Sans ms"
                                         FontSize="54"
                                         FontWeight="Medium"
-                                        Foreground="#0f630f"
+                                        Foreground="DarkSlateGray"
                                         MouseDown="SemesterItem_MouseLeftButtonDown"
                                         MouseEnter="SemesterItem_MouseEnter"
                                         MouseLeave="SemesterItem_MouseLeave"
@@ -315,7 +315,7 @@
                                             FontFamily="Comic Sans MS"
                                             FontSize="26"
                                             FontWeight="Medium"
-                                            Foreground="#0f630f"
+                                            Foreground="DarkSlateGray"
                                             MouseDown="SemesterItem_MouseLeftButtonDown"
                                             MouseEnter="SemesterItem_MouseEnter"
                                             MouseLeave="SemesterItem_MouseLeave"
@@ -390,7 +390,7 @@
                         Grid.Column="0"
                         Margin="30,5,0,15"
                         Background="#fefec9"
-                        BorderBrush="DarkSlateGray"
+                        BorderBrush="#0f630f"
                         BorderThickness="5">
                         <TextBlock
                             Margin="0,10,0,0"
@@ -399,7 +399,7 @@
                             FontSize="57"
                             FontStyle="Oblique"
                             FontWeight="Medium"
-                            Foreground="#0f630f"
+                            Foreground="DarkSlateGray"
                             Text="{Binding TotalAverage, StringFormat='Average grade: {0:F2}'}"
                             TextAlignment="Center" />
                     </Border>
