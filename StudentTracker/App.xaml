@@ -28,7 +28,7 @@
                                 <Border
                                     Grid.Row="0"
                                     Height="30"
-                                    Background="#333333"
+                                    Background="#2C2C2C"
                                     MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                                     <DockPanel>
                                         <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
@@ -47,7 +47,7 @@
                                             <Button
                                                 Width="42"
                                                 Height="30"
-                                                Background="#333333"
+                                                Background="#2C2C2C"
                                                 BorderBrush="{x:Null}"
                                                 Command="{Binding MinimizeCommand}">
                                                 <Button.Content>
@@ -63,7 +63,7 @@
                                             <Button
                                                 Width="42"
                                                 Height="30"
-                                                Background="#333333"
+                                                Background="#2C2C2C"
                                                 BorderBrush="{x:Null}"
                                                 Command="{Binding MaximizeCommand}">
                                                 <Button.Content>
@@ -79,7 +79,7 @@
                                             <Button
                                                 Width="42"
                                                 Height="30"
-                                                Background="#333333"
+                                                Background="#2C2C2C"
                                                 BorderBrush="{x:Null}"
                                                 Command="{Binding CloseCommand}">
                                                 <Button.Content>
@@ -123,7 +123,7 @@
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Background" Value="#007BFF " />
             <Setter Property="BorderThickness" Value="3" />
-            <Setter Property="BorderBrush" Value="#333333" />
+            <Setter Property="BorderBrush" Value="#2C2C2C" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Effect" Value="{StaticResource MouseOverDropShadowEffect}" />

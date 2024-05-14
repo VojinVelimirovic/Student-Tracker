@@ -55,7 +55,7 @@
             Grid.Row="0"
             Grid.RowSpan="4"
             Grid.Column="0"
-            Fill="#2C2C2C"
+            Fill="#333333"
             Stroke="Transparent"
             StrokeThickness="0" />
         <Button
@@ -281,7 +281,7 @@
                     Grid.Row="0"
                     Margin="40,55,40,50"
                     Background="White"
-                    BorderBrush="#333333"
+                    BorderBrush="#2C2C2C"
                     BorderThickness="5"
                     ItemsSource="{Binding Semesters}"
                     PreviewMouseDoubleClick="semesterTreeView_PreviewMouseDoubleClick"
@@ -291,7 +291,7 @@
                             <Border
                                 Width="Auto"
                                 Margin="0"
-                                BorderBrush="#333333"
+                                BorderBrush="#2C2C2C"
                                 BorderThickness="0,0.5,0,0.5">
                                 <Grid Width="970" Margin="10">
                                     <Grid.RowDefinitions>
@@ -318,7 +318,7 @@
                                         FontFamily="Verdana"
                                         FontSize="18"
                                         FontStyle="Italic"
-                                        Foreground="#333333"
+                                        Foreground="#2C2C2C"
                                         IsHitTestVisible="False"
                                         Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
                                 </Grid>
@@ -360,7 +360,7 @@
                                                     FontFamily="Roboto"
                                                     FontSize="20"
                                                     FontWeight="Medium"
-                                                    Foreground="#333333">
+                                                    Foreground="#2C2C2C">
                                                     <Run Text="{Binding Name}" />
                                                     <Run Text=" - Points scored: " />
                                                     <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
@@ -411,7 +411,7 @@
                         Grid.Column="0"
                         Margin="40,5,0,45"
                         Background="White"
-                        BorderBrush="#333333"
+                        BorderBrush="#2C2C2C"
                         BorderThickness="5">
                         <TextBlock
                             Margin="0"
