@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.IO;
 
 namespace StudentTracker
@@ -19,6 +20,13 @@ namespace StudentTracker
             base.OnStartup(e);
             string executableDirectory = AppDomain.CurrentDomain.BaseDirectory;
             Environment.CurrentDirectory = executableDirectory;
+        }
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.MainWindow.DragMove();
+            }
         }
     }
 }
