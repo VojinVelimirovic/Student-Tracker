@@ -27,7 +27,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Semester:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <ComboBox
             x:Name="SemComboBox"
@@ -44,7 +44,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Subject name:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <ComboBox
             x:Name="SubComboBox"

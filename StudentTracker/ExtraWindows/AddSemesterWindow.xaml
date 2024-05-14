@@ -21,8 +21,9 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <TextBlock
+            Margin="7"
             VerticalAlignment="Center"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="19"
             Text="Semester name: " />
         <TextBox
@@ -40,7 +41,7 @@
             Click="AddClick"
             Content="Add semester"
             Cursor="Hand"
-            FontFamily="Comic sans ms"
+            FontFamily="Roboto"
             FontSize="16"
             IsEnabled="False"
             Style="{StaticResource ShadowEffectButton}"

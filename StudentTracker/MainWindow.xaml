@@ -55,8 +55,9 @@
             Grid.Row="0"
             Grid.RowSpan="4"
             Grid.Column="0"
-            Panel.ZIndex="0"
-            Fill="#333333" />
+            Fill="#2C2C2C"
+            Stroke="Transparent"
+            StrokeThickness="0" />
         <Button
             Name="AddResult"
             Grid.Row="0"
@@ -82,7 +83,7 @@
                     <TextBlock
                         Grid.Column="1"
                         VerticalAlignment="Center"
-                        FontFamily="Comic sans ms"
+                        FontFamily="Roboto"
                         FontSize="19"
                         FontWeight="SemiBold"
                         Foreground="GhostWhite"
@@ -118,7 +119,7 @@
                             Grid.Row="1"
                             Margin="0,10,0,0"
                             VerticalAlignment="Center"
-                            FontFamily="Comic sans ms"
+                            FontFamily="Roboto"
                             FontSize="18"
                             FontWeight="SemiBold"
                             Foreground="GhostWhite"
@@ -149,7 +150,7 @@
                             Grid.Row="1"
                             Margin="0,10,0,0"
                             VerticalAlignment="Center"
-                            FontFamily="Comic sans ms"
+                            FontFamily="Roboto"
                             FontSize="18"
                             FontWeight="SemiBold"
                             Foreground="GhostWhite"
@@ -186,7 +187,7 @@
                             Grid.Row="1"
                             Margin="0,10,0,0"
                             VerticalAlignment="Center"
-                            FontFamily="Comic sans ms"
+                            FontFamily="Roboto"
                             FontSize="18"
                             FontWeight="SemiBold"
                             Foreground="GhostWhite"
@@ -217,7 +218,7 @@
                             Grid.Row="1"
                             Margin="0,10,0,0"
                             VerticalAlignment="Center"
-                            FontFamily="Comic sans ms"
+                            FontFamily="Roboto"
                             FontSize="18"
                             FontWeight="SemiBold"
                             Foreground="GhostWhite"
@@ -251,7 +252,7 @@
                     <TextBlock
                         Grid.Column="1"
                         VerticalAlignment="Center"
-                        FontFamily="Comic sans ms"
+                        FontFamily="Roboto"
                         FontSize="19"
                         FontWeight="SemiBold"
                         Foreground="GhostWhite"
@@ -259,193 +260,202 @@
                 </Grid>
             </Button.Content>
         </Button>
-        <Grid
+        <Border
             Grid.RowSpan="4"
             Grid.Column="1"
-            Background="#D9D9D9">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <TreeView
-                Name="semesterTreeView"
-                Grid.Row="0"
-                Margin="30,25,30,15"
-                Background="White"
-                BorderBrush="#333333"
-                BorderThickness="5"
-                ItemsSource="{Binding Semesters}"
-                PreviewMouseDoubleClick="semesterTreeView_PreviewMouseDoubleClick"
-                RenderTransform="{StaticResource zoomTransform}">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
-                        <Border
-                            Width="Auto"
-                            Margin="0"
-                            BorderBrush="#333333"
-                            BorderThickness="0,0.5,0,0.5">
-                            <Grid Width="980" Margin="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <TextBlock
-                                    Name="SemesterItem"
-                                    Grid.Row="0"
-                                    Width="Auto"
-                                    HorizontalAlignment="Left"
-                                    Cursor="Hand"
-                                    FontFamily="Comic Sans ms"
-                                    FontSize="54"
-                                    FontWeight="Medium"
-                                    Foreground="DarkSlateGray"
-                                    MouseDown="SemesterItem_MouseLeftButtonDown"
-                                    MouseEnter="SemesterItem_MouseEnter"
-                                    MouseLeave="SemesterItem_MouseLeave"
-                                    Text="{Binding Name}"
-                                    ToolTip="Expand/Collapse semester" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    FontFamily="Verdana"
-                                    FontSize="18"
-                                    FontStyle="Italic"
-                                    Foreground="#333333"
-                                    IsHitTestVisible="False"
-                                    Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
-                            </Grid>
-                        </Border>
-                        <HierarchicalDataTemplate.ItemTemplate>
-                            <HierarchicalDataTemplate ItemsSource="{Binding TestResults}">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
+            Background="#D9D9D9"
+            BorderThickness="1,0,0,0">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="Transparent" />
+                        <GradientStop Offset="0.8" Color="#11000000" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TreeView
+                    Name="semesterTreeView"
+                    Grid.Row="0"
+                    Margin="40,55,40,50"
+                    Background="White"
+                    BorderBrush="#333333"
+                    BorderThickness="5"
+                    ItemsSource="{Binding Semesters}"
+                    PreviewMouseDoubleClick="semesterTreeView_PreviewMouseDoubleClick"
+                    RenderTransform="{StaticResource zoomTransform}">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
+                            <Border
+                                Width="Auto"
+                                Margin="0"
+                                BorderBrush="#333333"
+                                BorderThickness="0,0.5,0,0.5">
+                                <Grid Width="970" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
                                     <TextBlock
-                                        Grid.Column="0"
-                                        Margin="7,0,0,0"
+                                        Name="SemesterItem"
+                                        Grid.Row="0"
+                                        Width="Auto"
+                                        HorizontalAlignment="Left"
                                         Cursor="Hand"
-                                        FontFamily="Comic Sans MS"
-                                        FontSize="26"
+                                        FontFamily="Roboto"
+                                        FontSize="54"
                                         FontWeight="Medium"
                                         Foreground="DarkSlateGray"
                                         MouseDown="SemesterItem_MouseLeftButtonDown"
                                         MouseEnter="SemesterItem_MouseEnter"
                                         MouseLeave="SemesterItem_MouseLeave"
-                                        ToolTip="Expand/Collapse subject">
-                                        <Run Text="{Binding Name}" />
-                                        <Run Text=" - Points scored: " />
-                                        <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
-                                        <Run Text="/" />
-                                        <Run Text="{Binding TotalPoints, StringFormat='{}{0:F2}'}" />
-                                        <Run Text=" - Percentage: " />
-                                        <Run Text="{Binding Percentage, StringFormat='{}{0:F2}'}" />
-                                        <Run Text="% - Grade: " />
-                                        <Run Text="{Binding Grade}" />
-                                    </TextBlock>
+                                        Text="{Binding Name}"
+                                        ToolTip="Expand/Collapse semester" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        FontFamily="Verdana"
+                                        FontSize="18"
+                                        FontStyle="Italic"
+                                        Foreground="#333333"
+                                        IsHitTestVisible="False"
+                                        Text="{Binding AverageGrade, StringFormat='Semester average: {0:F2}'}" />
                                 </Grid>
-                                <HierarchicalDataTemplate.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                Margin="10"
-                                                FontFamily="Comic Sans ms"
-                                                FontSize="20"
-                                                FontWeight="Medium"
-                                                Foreground="#333333">
-                                                <Run Text="{Binding Name}" />
-                                                <Run Text=" - Points scored: " />
-                                                <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
-                                                <Run Text="/" />
-                                                <Run Text="{Binding TotalPoints, StringFormat='{}{0:F2}'}" />
-                                                <Run Text=" - " />
-                                                <Run Text="{Binding Date, StringFormat='{}{0:d}'}" />
-                                            </TextBlock>
-                                            <Button
-                                                Name="RemoveTestResult"
-                                                Width="31"
-                                                Height="31"
-                                                Margin="0.5"
-                                                Background="Transparent"
-                                                BorderThickness="0"
-                                                Click="RemoveTestResult_Click"
-                                                ToolTip="Remove exam result">
-                                                <Button.Content>
-                                                    <Image Source="Images/removeTestResult.png" />
-                                                </Button.Content>
-                                            </Button>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </HierarchicalDataTemplate.ItemTemplate>
-                            </HierarchicalDataTemplate>
-                        </HierarchicalDataTemplate.ItemTemplate>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-                <TreeView.ItemContainerStyle>
-                    <Style BasedOn="{StaticResource TreeViewItemStyle}" TargetType="TreeViewItem">
-                        <Setter Property="Focusable" Value="False" />
-                        <Setter Property="IsExpanded" Value="False" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Path=Items.Count, RelativeSource={RelativeSource Self}}" Value="1">
-                                <Setter Property="IsExpanded" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TreeView.ItemContainerStyle>
-            </TreeView>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Border
-                    Grid.Column="0"
-                    Margin="30,5,0,25"
-                    Background="White"
-                    BorderBrush="#333333"
-                    BorderThickness="5">
-                    <TextBlock
-                        Margin="0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontFamily="Comic Sans ms"
-                        FontSize="57"
-                        FontStyle="Oblique"
-                        FontWeight="Medium"
-                        Foreground="#333333"
-                        Text="{Binding TotalAverage, StringFormat='Average grade: {0:F2}'}"
-                        TextAlignment="Center" />
-                </Border>
+                            </Border>
+                            <HierarchicalDataTemplate.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding TestResults}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            Margin="7,0,0,0"
+                                            Cursor="Hand"
+                                            FontFamily="Roboto"
+                                            FontSize="26"
+                                            FontWeight="Medium"
+                                            Foreground="DarkSlateGray"
+                                            MouseDown="SemesterItem_MouseLeftButtonDown"
+                                            MouseEnter="SemesterItem_MouseEnter"
+                                            MouseLeave="SemesterItem_MouseLeave"
+                                            ToolTip="Expand/Collapse subject">
+                                            <Run Text="{Binding Name}" />
+                                            <Run Text=" - Points scored: " />
+                                            <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
+                                            <Run Text="/" />
+                                            <Run Text="{Binding TotalPoints, StringFormat='{}{0:F2}'}" />
+                                            <Run Text=" - Percentage: " />
+                                            <Run Text="{Binding Percentage, StringFormat='{}{0:F2}'}" />
+                                            <Run Text="% - Grade: " />
+                                            <Run Text="{Binding Grade}" />
+                                        </TextBlock>
+                                    </Grid>
+                                    <HierarchicalDataTemplate.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock
+                                                    Margin="10"
+                                                    FontFamily="Roboto"
+                                                    FontSize="20"
+                                                    FontWeight="Medium"
+                                                    Foreground="#333333">
+                                                    <Run Text="{Binding Name}" />
+                                                    <Run Text=" - Points scored: " />
+                                                    <Run Text="{Binding ScoredPoints, StringFormat='{}{0:F2}'}" />
+                                                    <Run Text="/" />
+                                                    <Run Text="{Binding TotalPoints, StringFormat='{}{0:F2}'}" />
+                                                    <Run Text=" - " />
+                                                    <Run Text="{Binding Date, StringFormat='{}{0:d}'}" />
+                                                </TextBlock>
+                                                <Button
+                                                    Name="RemoveTestResult"
+                                                    Width="31"
+                                                    Height="31"
+                                                    Margin="0.5"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Click="RemoveTestResult_Click"
+                                                    ToolTip="Remove exam result">
+                                                    <Button.Content>
+                                                        <Image Source="Images/removeTestResult.png" />
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </HierarchicalDataTemplate.ItemTemplate>
+                                </HierarchicalDataTemplate>
+                            </HierarchicalDataTemplate.ItemTemplate>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                    <TreeView.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource TreeViewItemStyle}" TargetType="TreeViewItem">
+                            <Setter Property="Focusable" Value="False" />
+                            <Setter Property="IsExpanded" Value="False" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Items.Count, RelativeSource={RelativeSource Self}}" Value="1">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                </TreeView>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Margin="40,5,0,45"
+                        Background="White"
+                        BorderBrush="#333333"
+                        BorderThickness="5">
+                        <TextBlock
+                            Margin="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="57"
+                            FontStyle="Oblique"
+                            FontWeight="Medium"
+                            Foreground="DarkSlateGray"
+                            Text="{Binding TotalAverage, StringFormat='Average grade: {0:F2}'}"
+                            TextAlignment="Center" />
+                    </Border>
 
-                <Button
-                    Name="ZoomInButton"
-                    Grid.Column="1"
-                    Margin="50,5,10,25"
-                    Click="ZoomIn_Click"
-                    Style="{StaticResource ButtonStyle}"
-                    ToolTip="Zoom In (Ctrl+Plus)">
-                    <Button.Content>
-                        <Image
-                            Margin="15"
-                            Source="/Images/zoomInImage.png"
-                            Stretch="Uniform" />
-                    </Button.Content>
-                </Button>
-                <Button
-                    Name="ZoomOutButton"
-                    Grid.Column="2"
-                    Margin="10,5,50,25"
-                    Click="ZoomOut_Click"
-                    Style="{StaticResource ButtonStyle}"
-                    ToolTip="Zoom Out (Ctrl+Minus)">
-                    <Button.Content>
-                        <Image
-                            Margin="15"
-                            Source="/Images/zoomOutImage.png"
-                            Stretch="Uniform" />
-                    </Button.Content>
-                </Button>
+                    <Button
+                        Name="ZoomInButton"
+                        Grid.Column="1"
+                        Margin="50,5,10,45"
+                        Click="ZoomIn_Click"
+                        Style="{StaticResource ButtonStyle}"
+                        ToolTip="Zoom In (Ctrl+Plus)">
+                        <Button.Content>
+                            <Image
+                                Margin="15"
+                                Source="/Images/zoomInImage.png"
+                                Stretch="Uniform" />
+                        </Button.Content>
+                    </Button>
+                    <Button
+                        Name="ZoomOutButton"
+                        Grid.Column="2"
+                        Margin="10,5,50,45"
+                        Click="ZoomOut_Click"
+                        Style="{StaticResource ButtonStyle}"
+                        ToolTip="Zoom Out (Ctrl+Minus)">
+                        <Button.Content>
+                            <Image
+                                Margin="15"
+                                Source="/Images/zoomOutImage.png"
+                                Stretch="Uniform" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
             </Grid>
-        </Grid>
+        </Border>
     </Grid>
 </Window>

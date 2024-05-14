@@ -31,7 +31,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Semester:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <ComboBox
             x:Name="SemComboBox"
@@ -48,7 +48,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Subject name:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <ComboBox
             x:Name="SubComboBox"
@@ -66,7 +66,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Exam name:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <Label
             Grid.Row="3"
@@ -74,7 +74,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Points scored:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <Label
             Grid.Row="4"
@@ -82,7 +82,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Max points:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <Label
             Grid.Row="5"
@@ -90,7 +90,7 @@
             Margin="10"
             VerticalAlignment="Center"
             Content="Exam date:"
-            FontFamily="Comic Sans ms"
+            FontFamily="Roboto"
             FontSize="25" />
         <TextBox
             x:Name="NameBox"
