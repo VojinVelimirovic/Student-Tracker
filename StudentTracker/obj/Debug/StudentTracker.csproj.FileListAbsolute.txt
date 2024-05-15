@@ -204,4 +204,3 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome5.Net.dll
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome5.xml
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome5.Net.xml
-C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache

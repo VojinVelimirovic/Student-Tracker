@@ -55,7 +55,7 @@
             Grid.Row="0"
             Grid.RowSpan="4"
             Grid.Column="0"
-            Fill="#333333"
+            Fill="#494949"
             Stroke="Transparent"
             StrokeThickness="0" />
         <Button
@@ -269,7 +269,7 @@
                 <Grid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Offset="0" Color="Transparent" />
-                        <GradientStop Offset="0.8" Color="#11000000" />
+                        <GradientStop Offset="0.8" Color="#22000000" />
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Grid.RowDefinitions>

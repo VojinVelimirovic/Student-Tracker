@@ -34,10 +34,10 @@
                                         <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
                                             <Image
                                                 Height="15"
-                                                Margin="15,5,0,0"
+                                                Margin="15,0,0,0"
                                                 Source="/Images/book.png" />
                                             <TextBlock
-                                                Margin="8,5,0,0"
+                                                Margin="8,0,0,0"
                                                 VerticalAlignment="Center"
                                                 FontSize="14"
                                                 Foreground="#E0E0E0"
