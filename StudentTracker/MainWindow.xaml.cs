@@ -60,12 +60,23 @@ namespace StudentTracker
         {
             HasSemesters = Semesters.Any();
             HasSubjects = false;
-            foreach(Semester semester in Semesters) 
+            if (!HasSemesters)
             {
-                if (semester.Subjects.Any())
+                zoomOut = 2;
+                ZoomInButton.IsEnabled = false;
+                ZoomOutButton.IsEnabled = false;
+            }
+            else
+            {
+                ZoomInButton.IsEnabled = true;
+                ZoomOutButton.IsEnabled = true;
+                foreach (Semester semester in Semesters)
                 {
-                    HasSubjects = true;
-                    break;
+                    if (semester.Subjects.Any())
+                    {
+                        HasSubjects = true;
+                        break;
+                    }
                 }
             }
         }
@@ -119,7 +130,7 @@ namespace StudentTracker
             }
         }
         private double zoomFactor = 1.1;
-        private int zoomOut = 1;
+        private int zoomOut = 2;
         private int maxZoomOut = 4;
 
         private void SaveAppState()
