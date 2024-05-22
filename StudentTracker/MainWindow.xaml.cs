@@ -29,7 +29,7 @@ namespace StudentTracker
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string AppStateFilePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appState.json");
+        private string AppStateFilePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "StudentTracker", "appState.json");
 
         private NotificationManager notificationManager;
         public MainWindow()
@@ -133,10 +133,20 @@ namespace StudentTracker
         private int zoomOut = 2;
         private int maxZoomOut = 4;
 
+        private void EnsureAppStateFilePath()
+        {
+            string directory = System.IO.Path.GetDirectoryName(AppStateFilePath);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+        }
+
         private void SaveAppState()
         {
             try
             {
+                EnsureAppStateFilePath();
                 string json = JsonConvert.SerializeObject(Semesters);
                 File.WriteAllText(AppStateFilePath, json);
                 Console.WriteLine("Serialization successful.");
@@ -151,6 +161,7 @@ namespace StudentTracker
         {
             try
             {
+                EnsureAppStateFilePath();
                 if (File.Exists(AppStateFilePath))
                 {
                     string json = File.ReadAllText(AppStateFilePath);

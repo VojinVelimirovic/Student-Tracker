@@ -126,7 +126,6 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tra
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.Properties.Resources.resources
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.GenerateResource.cache
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.CoreCompileInputs.cache
-C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.CopyComplete
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tracker.exe
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\Student Tracker.pdb
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\App.baml
@@ -205,3 +204,4 @@ C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome5.xml
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\bin\Debug\FontAwesome5.Net.xml
 C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentTracker.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Desktop\4f\StudentTracker\StudentTracker\obj\Debug\StudentT.49B335BB.Up2Date
